@@ -1,0 +1,520 @@
+{
+  "meta": {
+    "siteName": "BLACKSHEEP TIERS",
+    "smoothing": 0.5,
+    "adminPass": "blacksheep"
+  },
+  "tiers": [
+    {
+      "id": "S",
+      "label": "S",
+      "color": "#ffb627",
+      "points": 10
+    },
+    {
+      "id": "A",
+      "label": "A",
+      "color": "#b06bff",
+      "points": 8
+    },
+    {
+      "id": "B",
+      "label": "B",
+      "color": "#ff8a3d",
+      "points": 6
+    },
+    {
+      "id": "C",
+      "label": "C",
+      "color": "#4da3ff",
+      "points": 4
+    },
+    {
+      "id": "D",
+      "label": "D",
+      "color": "#34d399",
+      "points": 2
+    }
+  ],
+  "categories": [
+    {
+      "color": "#4da3ff",
+      "icon": "swords",
+      "id": "sword",
+      "name": "Sword PvP",
+      "short": "SWO"
+    },
+    {
+      "color": "#f5a623",
+      "icon": "axe",
+      "id": "axe",
+      "name": "Axe PvP",
+      "short": "AXE"
+    },
+    {
+      "color": "#f4607a",
+      "icon": "heart",
+      "id": "uhc",
+      "name": "UHC",
+      "short": "UHC"
+    },
+    {
+      "color": "#34d399",
+      "icon": "flask",
+      "id": "dpot",
+      "name": "Diamond Pot",
+      "short": "DPOT"
+    },
+    {
+      "color": "#b06bff",
+      "icon": "flask",
+      "id": "npot",
+      "name": "Netherite Pot",
+      "short": "NPOT"
+    },
+    {
+      "color": "#ffb627",
+      "icon": "star",
+      "id": "op",
+      "name": "OP",
+      "short": "OP"
+    }
+  ],
+  "players": [
+    {
+      "tourneyPts": 0,
+      "badge": "HT4",
+      "overall": "S",
+      "tiers": {
+        "sword": "S",
+        "axe": "S"
+      },
+      "id": "p1",
+      "name": "ClubOne",
+      "skin": "ClubOne_"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "A",
+      "tiers": {
+        "sword": "B",
+        "axe": "A"
+      },
+      "id": "p2",
+      "name": "RQXSLLY",
+      "skin": "solleise"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "A",
+      "tiers": {
+        "sword": "B",
+        "axe": "A"
+      },
+      "id": "p3",
+      "name": "hkmhk",
+      "skin": "lagoat7112"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "A",
+      "tiers": {
+        "sword": "A",
+        "axe": "B"
+      },
+      "id": "p4",
+      "name": "Nekaa",
+      "skin": "Nekaa_"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "B",
+      "tiers": {
+        "sword": "C",
+        "axe": "B"
+      },
+      "id": "p5",
+      "name": "Richard_101",
+      "skin": "ClubOne"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "D",
+      "tiers": {
+        "sword": "D",
+        "axe": "D"
+      },
+      "id": "p6",
+      "name": "Mintcl",
+      "skin": "clubone_"
+    },
+    {
+      "tourneyPts": 0,
+      "badge": "",
+      "overall": "D",
+      "tiers": {
+        "sword": "D",
+        "axe": "D"
+      },
+      "id": "p7",
+      "name": "xomyak",
+      "skin": "xomyak"
+    }
+  ],
+  "matches": [
+    {
+      "date": "2026-04-25",
+      "id": "a1",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 1
+    },
+    {
+      "date": "2026-04-25",
+      "id": "a2",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 1
+    },
+    {
+      "date": "2026-04-25",
+      "id": "a3",
+      "cat": "axe",
+      "p1": "p2",
+      "p2": "p1",
+      "s1": 10,
+      "s2": 7
+    },
+    {
+      "date": "2026-04-25",
+      "id": "s1",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 0
+    },
+    {
+      "date": "2026-04-25",
+      "id": "s2",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 3
+    },
+    {
+      "date": "2026-04-25",
+      "id": "s3",
+      "cat": "sword",
+      "p1": "p2",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 9
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s4",
+      "cat": "sword",
+      "p1": "p4",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 7
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s5",
+      "cat": "sword",
+      "p1": "p4",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 6
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s6",
+      "cat": "sword",
+      "p1": "p2",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 9
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s7",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 5
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s8",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 1
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s9",
+      "cat": "sword",
+      "p1": "p3",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 6
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s10",
+      "cat": "sword",
+      "p1": "p3",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 7
+    },
+    {
+      "date": "2026-05-25",
+      "id": "s11",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 6
+    },
+    {
+      "date": "2026-06-08",
+      "id": "m21j6wb0",
+      "cat": "uhc",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 3,
+      "s2": 4
+    },
+    {
+      "date": "2026-06-08",
+      "id": "mt97jy4f",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 2
+    },
+    {
+      "date": "2026-06-08",
+      "id": "mw1su602",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 1,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-08",
+      "id": "mnpy9kmn",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 2,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-08",
+      "id": "mjef2cc9",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 3,
+      "s2": 1
+    },
+    {
+      "date": "2026-06-08",
+      "id": "m4qbcay1",
+      "cat": "npot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 1,
+      "s2": 0
+    },
+    {
+      "id": "m6bnr7cp",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 6,
+      "s2": 2,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mr4icp8o",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 0,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "m3rzq9z9",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 0,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mb15fily",
+      "cat": "sword",
+      "p1": "p2",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 2,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mkbrlweb",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 8,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "m04g65k8",
+      "cat": "sword",
+      "p1": "p4",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 5,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mlfrt39e",
+      "cat": "sword",
+      "p1": "p4",
+      "p2": "p2",
+      "s1": 10,
+      "s2": 8,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mkb8b8at",
+      "cat": "uhc",
+      "p1": "p2",
+      "p2": "p1",
+      "s1": 1,
+      "s2": 3,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "mqylv6lh",
+      "cat": "sword",
+      "p1": "p4",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 1,
+      "date": "2026-06-08"
+    },
+    {
+      "id": "m1x89cas",
+      "cat": "axe",
+      "p1": "p4",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 8,
+      "date": "2026-06-08"
+    }
+  ],
+  "tournaments": [
+    {
+      "id": "t1",
+      "name": "Parkour Open 1",
+      "short": "PRKR1",
+      "date": "2026-04-05",
+      "first": [
+        "p2"
+      ],
+      "second": [
+        "p4"
+      ],
+      "third": [
+        "p1",
+        "p3"
+      ],
+      "archived": false
+    },
+    {
+      "id": "t2",
+      "name": "Dropper Championship 1",
+      "short": "DRPPR1",
+      "date": "2026-04-24",
+      "first": [
+        "p1"
+      ],
+      "second": [
+        "p4"
+      ],
+      "third": [
+        "p3"
+      ],
+      "archived": false
+    }
+  ],
+  "hallOfFame": [
+    {
+      "dateStart": "",
+      "dateEnd": "",
+      "player": "p1",
+      "period": "April 2026 - May 2026",
+      "category": "Sword PvP"
+    },
+    {
+      "dateStart": "",
+      "dateEnd": "",
+      "player": "p4",
+      "period": "June 2026",
+      "category": "Axe PvP"
+    },
+    {
+      "id": "hyuxja4b",
+      "player": "p2",
+      "category": "Overall",
+      "dateStart": "2025-05-01",
+      "dateEnd": "2025-12-01"
+    },
+    {
+      "id": "h5ljj2gt",
+      "player": "p1",
+      "category": "Overall",
+      "dateStart": "2026-01-01",
+      "dateEnd": "2026-06-08"
+    },
+    {
+      "id": "ho0cc4iw",
+      "player": "p1",
+      "category": "Overall",
+      "dateStart": "2025-04-15",
+      "dateEnd": "2025-04-25"
+    },
+    {
+      "id": "hwpu9d5t",
+      "player": "p3",
+      "category": "Overall",
+      "dateStart": "2024-08-09",
+      "dateEnd": "2025-03-25"
+    }
+  ]
+}
