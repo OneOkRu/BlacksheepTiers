@@ -351,6 +351,7 @@ header.hd{position:sticky;top:0;z-index:80;background:rgba(7,7,11,.78);backdrop-
 .tl-now{position:absolute;top:-6px;bottom:-6px;width:2px;background:linear-gradient(180deg,transparent,#f472b6,transparent);z-index:3}
 .tl-nowlbl{position:absolute;top:-22px;transform:translateX(-50%);font-family:var(--disp);font-size:7.5px;font-weight:700;letter-spacing:.2em;color:#f472b6;text-transform:uppercase;white-space:nowrap}
 @keyframes growbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 
 /* ====== PROFILE SHEET ====== */
 #layer{position:fixed;inset:0;z-index:120;display:none}
@@ -887,10 +888,12 @@ function migrate(d){
     }
     h.category=cat;
     if(!h.dateStart&&h.period){
-      // парс "April 2026 - May 2026"
-      const M={january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,september:8,october:9,november:10,december:11};
+      // парс "April 2026 - May 2026" и "Апрель 2026 — Май 2026"
+      const M={january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,september:8,october:9,november:10,december:11,
+        "январь":0,"января":0,"февраль":1,"февраля":1,"март":2,"марта":2,"апрель":3,"апреля":3,"май":4,"мая":4,"июнь":5,"июня":5,
+        "июль":6,"июля":6,"август":7,"августа":7,"сентябрь":8,"сентября":8,"октябрь":9,"октября":9,"ноябрь":10,"ноября":10,"декабрь":11,"декабря":11};
       const parts=String(h.period).split(/[-–—]/).map(s=>s.trim());
-      const pp=s=>{const m=s.toLowerCase().match(/([a-z]+)\s+(\d{4})/);if(!m||M[m[1]]===undefined)return"";const dt=new Date(+m[2],M[m[1]],1);return dt.toISOString().slice(0,10);};
+      const pp=s=>{const m=s.toLowerCase().match(/([a-zа-яё]+)\.?\s+(\d{4})/i);if(!m||M[m[1]]===undefined)return"";const dt=new Date(Date.UTC(+m[2],M[m[1]],1));return dt.toISOString().slice(0,10);};
       if(parts[0])h.dateStart=pp(parts[0]);
       if(parts[1])h.dateEnd=pp(parts[1]);
       delete h.period;
@@ -905,7 +908,7 @@ function migrate(d){
 
 /* ================= STATE ================= */
 let published=null,draft=null;
-const state={route:"tiers",kit:"overall",eloKit:"overall",eloMode:"elo",matchKit:"all",matchPeriod:"all",
+const state={route:"tiers",kit:"overall",eloKit:"overall",eloMode:"elo",matchKit:"all",matchPeriod:"all",matchPlayer:null,
   seasonIdx:-1,hofMode:"timeline",atab:"players",authed:false,livePreview:false,editing:null,seasonEdit:null,
   confettiDone:false,palOpen:false,cmpWith:null};
 
@@ -1396,12 +1399,15 @@ function viewMatches(){
   const c=ctx(),data=c.data;
   const periods=[["all","Всё время"],["7","7 дней"],["30","30 дней"],["90","90 дней"]];
   let ms=data.matches.slice();
+  const fp=state.matchPlayer?byId(data.players,state.matchPlayer):null;
+  if(fp)ms=ms.filter(m=>m.p1===fp.id||m.p2===fp.id);
   if(state.matchKit!=="all")ms=ms.filter(m=>m.cat===state.matchKit);
   if(state.matchPeriod!=="all")ms=ms.filter(m=>daysAgo(m.date)<=+state.matchPeriod);
   ms.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
   let html='<div class="page">';
   html+='<section class="hero"><div class="ghost">FIGHTS</div><div class="h-kicker">'+data.matches.length+' '+plural(data.matches.length,"бой","боя","боёв")+' в базе</div><h1 class="h-title">МАТЧИ</h1><p class="h-sub">История всех зафиксированных дуэлей. Фильтруй по категории и периоду.</p></section>';
-  html+='<div class="filterrow"><div class="seg">'+periods.map(p=>'<button class="'+(state.matchPeriod===p[0]?"on":"")+'" data-mperiod="'+p[0]+'">'+p[1]+'</button>').join("")+'</div></div>';
+  html+='<div class="filterrow"><div class="seg">'+periods.map(p=>'<button class="'+(state.matchPeriod===p[0]?"on":"")+'" data-mperiod="'+p[0]+'">'+p[1]+'</button>').join("")+'</div>'+
+  (fp?'<button class="pf-btn" data-clearmplayer="1" style="border-color:var(--br1)55">'+headImg(fp.skin,18)+' Матчи: <b>'+esc(fp.name)+'</b> &nbsp;✕</button>':"")+'</div>';
   const tabs=[{id:"all",name:"Все",short:"ALL",icon:"globe",color:"#e8e8ee"}].concat(data.categories);
   html+='<div class="kits">'+tabs.map(k=>{
     const tip=k.id==="all"?"":' data-tipcat="'+k.id+'"';
@@ -1618,7 +1624,7 @@ function openProfile(pid){
     '<div class="pf-sub">'+(p.overall?'<span class="pf-tierchip" style="background:'+tcol+'">'+ic("shield",13)+' ТИР '+esc(p.overall)+'</span>':"")+
     (pk&&pk.idx<tierIdx(data,p.overall||"zz")?'<span class="peak" style="color:'+tierColor(data,pk.tier)+';border-color:'+tierColor(data,pk.tier)+'55;font-size:10px;padding:4px 9px">⤒ пик '+esc(pk.tier)+' · '+esc(pk.season)+'</span>':"")+
     '<span class="pf-act">'+activityDot(st.activity)+' '+actT+'</span></div>'+
-    '<div class="pf-actions"><button class="pf-btn" data-cmpopen="'+p.id+'">'+ic("swap",12)+' Сравнить</button><button class="pf-btn" data-share="'+p.id+'">'+ic("link",12)+' Ссылка</button></div>'+
+    '<div class="pf-actions"><button class="pf-btn" data-allmatches="'+p.id+'">'+ic("swords",12)+' Все матчи</button><button class="pf-btn" data-cmpopen="'+p.id+'">'+ic("swap",12)+' Сравнить</button><button class="pf-btn" data-share="'+p.id+'">'+ic("link",12)+' Ссылка</button></div>'+
     '</div></div>';
   // 6 статов
   const stats=[
@@ -1680,6 +1686,8 @@ function openProfile(pid){
   if(trs.length){
     html+='<div class="pf-sect">'+ic("trophy",13)+' Трофеи</div><div class="troph">'+trs.map(x=>'<div class="tr1"><span class="em">'+x[0]+'</span><span><span class="tn">'+esc(x[1].name)+'</span><br><span class="td">'+fmtD(x[1].date)+'</span></span></div>').join("")+'</div>';
   }
+  // диаграмма очков по сезонам
+  html+=seasonChart(pid);
   // история сезонов
   const hist=[];
   data.seasons.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")).forEach(s=>{
@@ -1708,37 +1716,92 @@ function chartHTML(pid){
   const seg='<div class="legend" style="margin:0 0 12px"><span class="lg'+(mode==="elo"?"":" off")+'" data-chartmode="elo"><span class="sw" style="background:var(--br1)"></span>ELO 0–100</span><span class="lg'+(mode==="score"?"":" off")+'" data-chartmode="score"><span class="sw" style="background:var(--br3)"></span>SCORE 0–1000</span></div>';
   if(!cats.length)return '<div class="chartbox">'+seg+'<div class="empty" style="padding:30px 0">Недостаточно матчей для графика</div></div>';
   const off=state._chartOff||(state._chartOff={});
-  const W=720,H=170,P=24;
+  const W=720,H=170,P=24,PR=52;// PR — поле справа под цифры, чтобы их ничто не закрывало
   const maxX=Math.max(...cats.map(cid=>tl[cid][tl[cid].length-1].x),1);
-  const sx=x=>P+(W-2*P)*(x/maxX);
+  const sx=x=>P+(W-P-PR)*(x/maxX);
   const sy=v=>H-P-(H-2*P)*(clamp(v,0,maxY)/maxY);
-  let paths="";
+  const curVal={};
+  let paths="";const labels=[];
   cats.forEach((cid,ci)=>{
-    if(off[cid])return;
     const cc=byId(data.categories,cid)||{color:"#a78bfa"};
     const raw=tl[cid];
     // якорим: последняя точка = текущее реальное значение игрока
     const target=mode==="elo"?ratingFor(c.R,cid,pid):ctxPerf(cid)[pid];
     const lastRaw=raw[raw.length-1].v;
     const k=(target!=null&&lastRaw>0)?target/lastRaw:(maxY/100);
+    curVal[cid]=Math.round(clamp(lastRaw*k,0,maxY));
+    if(off[cid])return;
     const pts=raw.map(pt=>({x:pt.x,v:clamp(pt.v*k,0,maxY)}));
     let dStr="";
     pts.forEach((pt,i)=>{dStr+=(i?"L":"M")+sx(pt.x).toFixed(1)+" "+sy(pt.v).toFixed(1)+" ";});
     paths+='<path class="cpath" d="'+dStr+'" stroke="'+cc.color+'" pathLength="1" style="animation-delay:'+(ci*180)+'ms"/>';
     const lastP=pts[pts.length-1];
-    paths+='<circle class="cdot" cx="'+sx(lastP.x).toFixed(1)+'" cy="'+sy(lastP.v).toFixed(1)+'" r="3.4" fill="'+cc.color+'"/>';
-    paths+='<text class="cdot" x="'+(sx(lastP.x)+7).toFixed(1)+'" y="'+(sy(lastP.v)+3.5).toFixed(1)+'" font-size="10" font-weight="700" fill="'+cc.color+'" font-family="JetBrains Mono,monospace">'+Math.round(lastP.v)+'</text>';
+    labels.push({cx:sx(lastP.x),cy:sy(lastP.v),color:cc.color,txt:String(Math.round(lastP.v))});
+  });
+  // разводим подписи по вертикали в правом поле — друг друга не закрывают
+  const MINGAP=14;
+  labels.forEach(l=>l.ty=clamp(l.cy+3.5,11,H-5));
+  labels.sort((a,b)=>a.ty-b.ty);
+  for(let i=1;i<labels.length;i++)if(labels[i].ty-labels[i-1].ty<MINGAP)labels[i].ty=labels[i-1].ty+MINGAP;
+  for(let i=labels.length-1;i>=0;i--){
+    if(labels[i].ty>H-5)labels[i].ty=H-5;
+    if(i<labels.length-1&&labels[i+1].ty-labels[i].ty<MINGAP)labels[i].ty=labels[i+1].ty-MINGAP;
+  }
+  labels.forEach(l=>{
+    paths+='<circle class="cdot" cx="'+l.cx.toFixed(1)+'" cy="'+l.cy.toFixed(1)+'" r="3.4" fill="'+l.color+'"/>';
+    paths+='<line class="cdot" x1="'+(l.cx+3).toFixed(1)+'" y1="'+l.cy.toFixed(1)+'" x2="'+(W-PR+9).toFixed(1)+'" y2="'+(l.ty-3.5).toFixed(1)+'" stroke="'+l.color+'" stroke-width="1" opacity=".4"/>';
+    paths+='<text class="cdot" x="'+(W-PR+12)+'" y="'+l.ty.toFixed(1)+'" font-size="10" font-weight="700" fill="'+l.color+'" font-family="JetBrains Mono,monospace">'+l.txt+'</text>';
   });
   let grid="";
   [0,0.25,0.5,0.75,1].forEach(f=>{
     const v=Math.round(maxY*f);
-    grid+='<line x1="'+P+'" y1="'+sy(v)+'" x2="'+(W-P)+'" y2="'+sy(v)+'" stroke="rgba(255,255,255,.05)" stroke-dasharray="3 5"/><text x="'+(P-7)+'" y="'+(sy(v)+3)+'" font-size="8.5" fill="#5c5c66" text-anchor="end" font-family="JetBrains Mono,monospace">'+v+'</text>';
+    grid+='<line x1="'+P+'" y1="'+sy(v)+'" x2="'+(W-PR+4)+'" y2="'+sy(v)+'" stroke="rgba(255,255,255,.05)" stroke-dasharray="3 5"/><text x="'+(P-7)+'" y="'+(sy(v)+3)+'" font-size="8.5" fill="#5c5c66" text-anchor="end" font-family="JetBrains Mono,monospace">'+v+'</text>';
   });
   const legend=cats.map(cid=>{
     const cc=byId(data.categories,cid)||{name:cid,color:"#a78bfa"};
-    return '<span class="lg'+(off[cid]?" off":"")+'" data-cline="'+cid+'"><span class="sw" style="background:'+cc.color+'"></span>'+esc(cc.short||cc.name)+'</span>';
+    return '<span class="lg'+(off[cid]?" off":"")+'" data-cline="'+cid+'"><span class="sw" style="background:'+cc.color+'"></span>'+esc(cc.short||cc.name)+'<b style="color:'+cc.color+';font-family:var(--mono);font-size:10px">'+curVal[cid]+'</b></span>';
   }).join("");
   return '<div class="chartbox">'+seg+'<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">'+grid+paths+'</svg><div class="legend">'+legend+'</div></div>';
+}
+/* ---- диаграмма очков по сезонам ---- */
+function seasonChart(pid){
+  const data=D();
+  const seasons=data.seasons.slice().sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+  const bars=[];
+  seasons.forEach(s=>{
+    const e=(s.entries||[]).find(x=>x.player===pid);
+    if(e)bars.push({name:s.name,pts:+e.points||0,tier:e.tier});
+  });
+  const p=byId(data.players,pid);
+  if(p)bars.push({name:"Сейчас",pts:playerPoints(data,p),tier:p.overall,now:true});
+  if(bars.length<2)return"";
+  const maxP=Math.max(...bars.map(b=>b.pts),1);
+  const W=720,H=150,P=14,BOT=26;
+  const bw=Math.min(64,(W-2*P)/bars.length*0.56);
+  const step=(W-2*P)/bars.length;
+  let svg="";
+  // горизонтальные направляющие
+  [0.5,1].forEach(f=>{
+    const y=H-BOT-(H-BOT-18)*f;
+    svg+='<line x1="'+P+'" y1="'+y.toFixed(1)+'" x2="'+(W-P)+'" y2="'+y.toFixed(1)+'" stroke="rgba(255,255,255,.05)" stroke-dasharray="3 5"/>';
+  });
+  bars.forEach((b,i)=>{
+    const h=Math.max(3,(H-BOT-18)*(b.pts/maxP));
+    const x=P+step*i+(step-bw)/2;
+    const y=H-BOT-h;
+    const col=b.tier?tierColor(data,b.tier):"#a78bfa";
+    const fill=b.now?'url(#sbgrad)':col;
+    svg+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="6" fill="'+fill+'" opacity="'+(b.now?'1':'.78')+'" style="transform-origin:'+(x+bw/2).toFixed(1)+'px '+(H-BOT)+'px;animation:growY .7s cubic-bezier(.22,1,.36,1) both;animation-delay:'+(i*70)+'ms"/>';
+    svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(y-6).toFixed(1)+'" font-size="11" font-weight="800" fill="'+(b.now?'#fff':col)+'" text-anchor="middle" font-family="JetBrains Mono,monospace">'+b.pts+'</text>';
+    // подпись сезона: "Winter 2025" -> "WIN 25"
+    const parts=String(b.name).split(/\s+/);
+    const short=b.now?"СЕЙЧАС":((parts[0]||"").slice(0,3).toUpperCase()+(parts[1]?" "+String(parts[1]).slice(-2):""));
+    svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-BOT+15)+'" font-size="8.5" font-weight="700" fill="'+(b.now?'#f472b6':'#5c5c66')+'" text-anchor="middle" font-family="Unbounded,sans-serif" letter-spacing="1">'+esc(short)+'</text>';
+    if(b.tier){
+      svg+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-BOT-h+(h>26?15:-18)).toFixed(1)+'" font-size="10" font-weight="800" fill="'+(h>26?'rgba(0,0,0,.6)':col)+'" text-anchor="middle" font-family="Unbounded,sans-serif">'+esc(b.tier)+'</text>';
+    }
+  });
+  return '<div class="pf-sect">'+ic("medal",13)+' Очки по сезонам</div><div class="chartbox"><svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="height:170px"><defs><linearGradient id="sbgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6"/></linearGradient></defs>'+svg+'</svg></div>';
 }
 function closeLayer(){
   const layer=document.getElementById("layer");
@@ -2057,7 +2120,7 @@ function snapshotSeason(){
 
 /* ================= EVENTS ================= */
 document.addEventListener("click",e=>{
-  const t=e.target.closest("[data-nav],[data-kit],[data-elokit],[data-elomode],[data-mkit],[data-mperiod],[data-season],[data-hofmode],[data-atab],[data-act],[data-player],[data-close],[data-cline],[data-chartmode],[data-cmpopen],[data-share]");
+  const t=e.target.closest("[data-nav],[data-kit],[data-elokit],[data-elomode],[data-mkit],[data-mperiod],[data-season],[data-hofmode],[data-atab],[data-act],[data-player],[data-close],[data-cline],[data-chartmode],[data-cmpopen],[data-share],[data-allmatches],[data-clearmplayer]");
   if(!t)return;
   const ds=t.dataset;
   if(ds.close!==undefined&&t===e.target||ds.close&&t.classList.contains("pf-x")){closeLayer();return;}
@@ -2078,6 +2141,8 @@ document.addEventListener("click",e=>{
     const box=t.closest(".chartbox");
     if(box&&pid){const tmp=document.createElement("div");tmp.innerHTML=chartHTML(pid);box.replaceWith(tmp.firstChild);}
     return;}
+  if(ds.allmatches){state.matchPlayer=ds.allmatches;closeLayer();go("matches");return;}
+  if(ds.clearmplayer){state.matchPlayer=null;render();return;}
   if(ds.cmpopen){renderCompare(ds.cmpopen,state.cmpWith);return;}
   if(ds.share){
     const url=(location.href.split("#")[0])+"#/"+state.route+"?player="+ds.share;
@@ -2270,9 +2335,15 @@ function applyHash(){
 }
 function boot(){
   showSkeleton();
-  // 1. localStorage
+  // 1. localStorage (включая легаси-ключи старой версии сайта)
   let pub=null;
   try{const raw=store.get(PUB_KEY);if(raw)pub=JSON.parse(raw);}catch(e){}
+  if(!pub){
+    ["bs_published","bs_draft","blacksheep_data"].some(k=>{
+      try{const raw=store.get(k);if(raw){pub=JSON.parse(raw);return true;}}catch(e){}
+      return false;
+    });
+  }
   const finish=()=>{
     published=migrate(pub||DEFAULT_DATA());
     let dr=null;
