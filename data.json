@@ -1,8 +1,17 @@
 {
   "meta": {
     "siteName": "BLACKSHEEP TIERS",
+    "adminPass": "blacksheep",
     "smoothing": 0.5,
-    "adminPass": "blacksheep"
+    "decay": 0.85,
+    "server": "Aormio",
+    "nav": {
+      "tiers": true,
+      "elo": true,
+      "matches": true,
+      "tournaments": true,
+      "archive": true
+    }
   },
   "tiers": [
     {
@@ -40,6 +49,7 @@
     {
       "color": "#4da3ff",
       "icon": "swords",
+      "desc": "Классическая дуэль на мечах: щит, стрейфы, комбо и контроль дистанции. Чистый аим и тайминг ударов.",
       "id": "sword",
       "name": "Sword PvP",
       "short": "SWO"
@@ -47,6 +57,7 @@
     {
       "color": "#f5a623",
       "icon": "axe",
+      "desc": "Бой на топорах со щитами. Решают краш щита, кулдаун-трейды и наказание за промах.",
       "id": "axe",
       "name": "Axe PvP",
       "short": "AXE"
@@ -54,6 +65,7 @@
     {
       "color": "#f4607a",
       "icon": "heart",
+      "desc": "Ultra Hardcore: без естественного отхила. Каждое яблоко и каждая ошибка на вес золота.",
       "id": "uhc",
       "name": "UHC",
       "short": "UHC"
@@ -61,6 +73,7 @@
     {
       "color": "#34d399",
       "icon": "flask",
+      "desc": "Зелья на алмазной броне. Менеджмент хилок, дебаффы и агрессивные размены.",
       "id": "dpot",
       "name": "Diamond Pot",
       "short": "DPOT"
@@ -68,6 +81,7 @@
     {
       "color": "#b06bff",
       "icon": "flask",
+      "desc": "Незеритовый пот-файт: затяжные бои, где побеждает выносливость и точный расход зелий.",
       "id": "npot",
       "name": "Netherite Pot",
       "short": "NPOT"
@@ -75,6 +89,7 @@
     {
       "color": "#ffb627",
       "icon": "star",
+      "desc": "Полный незерит с максимальными чарами и тоннами гэплов. Война на истощение.",
       "id": "op",
       "name": "OP",
       "short": "OP"
@@ -89,9 +104,9 @@
         "sword": "S",
         "axe": "S"
       },
+      "skin": "ClubOne_",
       "id": "p1",
-      "name": "ClubOne",
-      "skin": "ClubOne_"
+      "name": "ClubOne"
     },
     {
       "tourneyPts": 0,
@@ -101,9 +116,9 @@
         "sword": "B",
         "axe": "S"
       },
+      "skin": "solleise",
       "id": "p2",
-      "name": "RQXSLLY",
-      "skin": "solleise"
+      "name": "RQXSLLY"
     },
     {
       "tourneyPts": 0,
@@ -113,9 +128,9 @@
         "sword": "B",
         "axe": "B"
       },
+      "skin": "lagoat7112",
       "id": "p3",
-      "name": "hkmhk",
-      "skin": "lagoat7112"
+      "name": "hkmhk"
     },
     {
       "tourneyPts": 0,
@@ -125,21 +140,21 @@
         "sword": "A",
         "axe": "B"
       },
+      "skin": "Nekaa_",
       "id": "p4",
-      "name": "Nekaa",
-      "skin": "Nekaa_"
+      "name": "Nekaa"
     },
     {
       "tourneyPts": 0,
       "badge": "",
-      "overall": "B",
+      "overall": "C",
       "tiers": {
         "sword": "C",
-        "axe": "B"
+        "axe": "C"
       },
+      "skin": "ClubOne",
       "id": "p5",
-      "name": "Richard_101",
-      "skin": "ClubOne"
+      "name": "Richard_101"
     },
     {
       "tourneyPts": 0,
@@ -149,9 +164,9 @@
         "sword": "D",
         "axe": "D"
       },
+      "skin": "Mintcl",
       "id": "p6",
-      "name": "Mintcl",
-      "skin": "clubone_"
+      "name": "Mintcl"
     },
     {
       "tourneyPts": 0,
@@ -161,9 +176,9 @@
         "sword": "D",
         "axe": "D"
       },
+      "skin": "xomyak",
       "id": "p7",
-      "name": "xomyak",
-      "skin": "xomyak"
+      "name": "xomyak"
     }
   ],
   "matches": [
@@ -429,75 +444,197 @@
       "s2": 8
     },
     {
+      "date": "2026-06-08",
       "id": "mgvdmk3b",
       "cat": "axe",
       "p1": "p1",
       "p2": "p4",
       "s1": 10,
-      "s2": 3,
-      "date": "2026-06-08"
+      "s2": 3
     },
     {
+      "date": "2026-06-08",
       "id": "mdgo2pwl",
       "cat": "dpot",
       "p1": "p1",
       "p2": "p4",
       "s1": 0,
-      "s2": 4,
-      "date": "2026-06-08"
+      "s2": 4
     },
     {
+      "date": "2026-06-08",
       "id": "mptjbo1l",
       "cat": "dpot",
       "p1": "p1",
       "p2": "p4",
       "s1": 4,
-      "s2": 3,
-      "date": "2026-06-08"
+      "s2": 3
     },
     {
+      "date": "2026-06-08",
       "id": "m5ob4e97",
       "cat": "uhc",
       "p1": "p1",
       "p2": "p4",
       "s1": 4,
-      "s2": 2,
-      "date": "2026-06-08"
+      "s2": 2
     },
     {
+      "date": "2026-06-08",
       "id": "mhwc634a",
       "cat": "uhc",
       "p1": "p1",
       "p2": "p2",
       "s1": 3,
-      "s2": 1,
-      "date": "2026-06-08"
+      "s2": 1
     },
     {
+      "date": "2026-06-08",
       "id": "mid0nlek",
       "cat": "uhc",
       "p1": "p4",
       "p2": "p2",
       "s1": 1,
-      "s2": 4,
-      "date": "2026-06-08"
+      "s2": 4
     },
     {
+      "date": "2026-06-08",
       "id": "mecen61s",
       "cat": "dpot",
       "p1": "p1",
       "p2": "p2",
       "s1": 1,
-      "s2": 0,
-      "date": "2026-06-08"
+      "s2": 0
+    },
+    {
+      "date": "2026-06-10",
+      "id": "mtsvhdy1n",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 6,
+      "s2": 0
+    },
+    {
+      "date": "2026-06-10",
+      "id": "mbm8l6q01",
+      "cat": "uhc",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 1,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-10",
+      "id": "mxcvje2ql",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 6,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-10",
+      "id": "m7pup9mpe",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 6,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-10",
+      "id": "mo3xj3ubr",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 6,
+      "s2": 0
+    },
+    {
+      "date": "2026-06-10",
+      "id": "mpddtd9z6",
+      "cat": "uhc",
+      "p1": "p1",
+      "p2": "p2",
+      "s1": 1,
+      "s2": 3
+    },
+    {
+      "date": "2026-06-12",
+      "id": "md25eyca6",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p5",
+      "s1": 11,
+      "s2": 0
+    },
+    {
+      "date": "2026-06-12",
+      "id": "mgb1xejdy",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p5",
+      "s1": 7,
+      "s2": 0
+    },
+    {
+      "date": "2026-06-12",
+      "id": "mv37ofz34",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p5",
+      "s1": 3,
+      "s2": 1
+    },
+    {
+      "date": "2026-06-12",
+      "id": "m5kt6vr9r",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 6,
+      "s2": 1
+    },
+    {
+      "date": "2026-06-12",
+      "id": "mpg3msqsb",
+      "cat": "uhc",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 2,
+      "s2": 4
+    },
+    {
+      "date": "2026-06-12",
+      "id": "m93tlv74k",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 6
+    },
+    {
+      "date": "2026-06-12",
+      "id": "mlpsmd0b2",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 10,
+      "s2": 2
+    },
+    {
+      "date": "2026-06-12",
+      "id": "msc5w4605",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p4",
+      "s1": 4,
+      "s2": 2
     }
   ],
   "tournaments": [
     {
-      "id": "t1",
-      "name": "Parkour Open 1",
-      "short": "PRKR1",
-      "date": "2026-04-05",
       "first": [
         "p2"
       ],
@@ -508,13 +645,13 @@
         "p1",
         "p3"
       ],
-      "archived": false
+      "archived": false,
+      "id": "t1",
+      "name": "Parkour Open 1",
+      "short": "PRKR1",
+      "date": "2026-04-05"
     },
     {
-      "id": "t2",
-      "name": "Dropper Championship 1",
-      "short": "DRPPR1",
-      "date": "2026-04-24",
       "first": [
         "p1"
       ],
@@ -524,51 +661,432 @@
       "third": [
         "p3"
       ],
-      "archived": false
+      "archived": false,
+      "id": "t2",
+      "name": "Dropper Championship 1",
+      "short": "DRPPR1",
+      "date": "2026-04-24"
     }
   ],
   "hallOfFame": [
     {
-      "dateStart": "",
-      "dateEnd": "",
-      "player": "p1",
-      "period": "April 2026 - May 2026",
-      "category": "Sword PvP"
+      "id": "h1",
+      "dateStart": "2024-08-09",
+      "dateEnd": "2025-03-25",
+      "player": "p3",
+      "category": "overall"
     },
     {
-      "dateStart": "",
+      "id": "h2",
+      "dateStart": "2025-04-15",
+      "dateEnd": "2025-04-25",
+      "player": "p1",
+      "category": "overall"
+    },
+    {
+      "id": "h3",
+      "dateStart": "2025-05-01",
+      "dateEnd": "2025-12-01",
+      "player": "p2",
+      "category": "overall"
+    },
+    {
+      "id": "h4",
+      "dateStart": "2026-01-01",
+      "dateEnd": "2026-06-08",
+      "player": "p1",
+      "category": "overall"
+    },
+    {
+      "id": "h5",
+      "dateStart": "2026-04-01",
+      "dateEnd": "2026-05-31",
+      "player": "p1",
+      "category": "sword"
+    },
+    {
+      "id": "h6",
+      "dateStart": "2026-06-01",
       "dateEnd": "",
       "player": "p4",
-      "period": "June 2026",
-      "category": "Axe PvP"
+      "category": "axe"
+    }
+  ],
+  "seasons": [
+    {
+      "id": "sn1",
+      "entries": [
+        {
+          "player": "p3",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p1",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Winter 2025",
+      "date": "2025-01-06"
     },
     {
-      "id": "hyuxja4b",
-      "player": "p2",
-      "category": "Overall",
-      "dateStart": "2025-05-01",
-      "dateEnd": "2025-12-01"
+      "id": "sn2",
+      "entries": [
+        {
+          "player": "p1",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "A",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "S",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p3",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Spring 2025",
+      "date": "2025-04-06"
     },
     {
-      "id": "h5ljj2gt",
-      "player": "p1",
-      "category": "Overall",
-      "dateStart": "2026-01-01",
-      "dateEnd": "2026-06-08"
+      "id": "sn3",
+      "entries": [
+        {
+          "player": "p1",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "S",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p3",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Summer 2025",
+      "date": "2025-06-06"
     },
     {
-      "id": "ho0cc4iw",
-      "player": "p1",
-      "category": "Overall",
-      "dateStart": "2025-04-15",
-      "dateEnd": "2025-04-25"
+      "id": "sn4",
+      "entries": [
+        {
+          "player": "p1",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "S",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p3",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Autumn 2025",
+      "date": "2025-10-06"
     },
     {
-      "id": "hwpu9d5t",
-      "player": "p3",
-      "category": "Overall",
-      "dateStart": "2024-08-09",
-      "dateEnd": "2025-03-25"
+      "id": "sn5",
+      "entries": [
+        {
+          "player": "p1",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "S",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p3",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "A",
+          "points": 16,
+          "tiers": {
+            "sword": "A",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Winter 2026",
+      "date": "2026-01-24"
+    },
+    {
+      "id": "sn6",
+      "entries": [
+        {
+          "player": "p1",
+          "tier": "S",
+          "points": 20,
+          "tiers": {
+            "sword": "S",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p2",
+          "tier": "S",
+          "points": 18,
+          "tiers": {
+            "sword": "A",
+            "axe": "S"
+          }
+        },
+        {
+          "player": "p3",
+          "tier": "A",
+          "points": 14,
+          "tiers": {
+            "sword": "B",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p4",
+          "tier": "B",
+          "points": 14,
+          "tiers": {
+            "sword": "B",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p5",
+          "tier": "A",
+          "points": 14,
+          "tiers": {
+            "sword": "B",
+            "axe": "A"
+          }
+        },
+        {
+          "player": "p6",
+          "tier": "B",
+          "points": 12,
+          "tiers": {
+            "sword": "B",
+            "axe": "B"
+          }
+        },
+        {
+          "player": "p7",
+          "tier": "D",
+          "points": 4,
+          "tiers": {
+            "sword": "D",
+            "axe": "D"
+          }
+        }
+      ],
+      "name": "Spring 2026",
+      "date": "2026-04-06"
     }
   ]
 }
