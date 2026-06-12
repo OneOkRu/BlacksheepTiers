@@ -843,8 +843,8 @@
           "tier": "S",
           "points": 20,
           "tiers": {
-            "sword": "S",
-            "axe": "S"
+            "sword": "A",
+            "axe": "A"
           }
         },
         {
@@ -853,7 +853,7 @@
           "points": 18,
           "tiers": {
             "sword": "S",
-            "axe": "A"
+            "axe": "S"
           }
         },
         {
@@ -904,7 +904,7 @@
           "tier": "S",
           "points": 20,
           "tiers": {
-            "sword": "S",
+            "sword": "A",
             "axe": "S"
           }
         },
