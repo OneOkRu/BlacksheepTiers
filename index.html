@@ -591,6 +591,146 @@ select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   .seg button{padding:8px 13px;font-size:10px}
   .kit{padding:10px 14px;font-size:10.5px}
 }
+/* ====== SHARE CARD (скриншот-карточка) ====== */
+.shotwrap{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;max-width:430px}
+.shotcard{width:100%;background:linear-gradient(160deg,#101018,#0a0a10 60%);border:1px solid var(--line2);border-radius:24px;padding:26px 26px 20px;position:relative;overflow:hidden;animation:sheetin .35s ease both}
+.shotcard::before{content:"";position:absolute;top:-90px;right:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(167,139,250,.18),transparent 65%);pointer-events:none}
+.shotcard::after{content:"";position:absolute;bottom:-90px;left:-70px;width:240px;height:240px;background:radial-gradient(circle,rgba(244,114,182,.12),transparent 65%);pointer-events:none}
+.shot-top{display:flex;align-items:center;justify-content:space-between;font-family:var(--disp);font-weight:700;font-size:8.5px;letter-spacing:.22em;color:var(--mut2);text-transform:uppercase;position:relative;z-index:1}
+.shot-top .sn{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.shot-id{display:flex;align-items:center;gap:15px;margin:18px 0 4px;position:relative;z-index:1}
+.shot-id .headimg{width:64px;height:64px;border-radius:15px;border:2px solid var(--line2)}
+.shot-id .nm{font-family:var(--disp);font-weight:800;font-size:24px;line-height:1.1;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.shot-id .sub{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:wrap}
+.shot-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;position:relative;z-index:1}
+.shot-stats .ss{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:13px;padding:11px 6px;text-align:center}
+.shot-stats .ss .v{font-family:var(--disp);font-weight:800;font-size:18px}
+.shot-stats .ss .k{font-family:var(--disp);font-size:7px;font-weight:600;letter-spacing:.18em;color:var(--mut2);text-transform:uppercase;margin-top:3px}
+.shot-cats{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px;position:relative;z-index:1}
+.shot-cats .scp{flex:1;min-width:48px;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:11px;padding:8px 4px;text-align:center}
+.shot-cats .scp .t{font-family:var(--disp);font-weight:800;font-size:16px;line-height:1}
+.shot-cats .scp .c{font-family:var(--disp);font-size:6.5px;font-weight:600;letter-spacing:.14em;color:var(--mut2);margin-top:4px;text-transform:uppercase}
+.shot-form{display:flex;align-items:center;gap:11px;margin-top:15px;position:relative;z-index:1}
+.shot-form .wrbar{flex:1;height:7px}
+.shot-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:13px;border-top:1px solid var(--line);font-family:var(--mono);font-size:9px;font-weight:600;color:var(--mut2);position:relative;z-index:1}
+.shot-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+
+/* ====== MOBILE POLISH ====== */
+@media(hover:none){
+  .nbtn,.kit,.seg button,.stab,.atab,.pf-btn,.abtn,.toggle{min-height:40px}
+  *{-webkit-tap-highlight-color:transparent}
+}
+@media(max-width:760px){
+  .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{white-space:nowrap;flex:none}
+  .filterrow{gap:10px}
+  .stabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .stabs::-webkit-scrollbar{display:none}
+  .stab{white-space:nowrap;flex:none}
+  .atabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .atabs::-webkit-scrollbar{display:none}
+  .atab{white-space:nowrap;flex:none}
+  .logo .tag{display:none}
+  .logo .word{font-size:13px}
+  .row.lb{grid-template-columns:32px 1fr 64px;padding:0 11px}
+  .row{height:74px}
+  .rk{font-size:14px}
+  .headimg{border-radius:8px}
+  .pcell{gap:10px}
+  .pcell .headimg{width:38px;height:38px}
+  .nm{font-size:13.5px}
+  .pts .n{font-size:19px}
+  .l2{gap:7px}
+  .wrbar{width:40px}
+  .mc{padding:13px 13px;gap:5px}
+  .mc .mscore{font-size:21px;margin:4px 0 2px}
+  .mc .mprow .headimg{width:29px;height:29px}
+  .mc .mprow .nm2{font-size:11.5px}
+  .mc .mcat{padding:2px 7px;font-size:7.5px}
+  .dategroup .dl{font-size:13px}
+  .tcard{padding:18px}
+  .tcard .tname{font-size:17px}
+  .mvp{padding:14px 16px;gap:13px}
+  .mvp .mvpn{font-size:17px}
+  .mvp .mvptag{margin-left:0;width:100%;text-align:center}
+  .pd .bodyimg{height:150px!important}
+  .pd.r1 .bodyimg{height:178px!important}
+  .pd-stage{width:130px}
+  .hof-hero{padding:34px 0 22px}
+  .tlwrap{padding:16px 12px}
+  .tl-row{grid-template-columns:104px 1fr;gap:9px}
+  .tl-who .nm{font-size:10.5px}
+  .tl-who .headimg{width:25px;height:25px}
+  .hcard{padding:16px}
+  .hcard .hhead{width:58px;height:58px}
+  .hcard .hnm{font-size:15px}
+  .sheet{padding:14px 8px}
+  .pcard{border-radius:20px}
+  .pf-top{padding:24px 14px 18px}
+  .pf-skin img{height:150px}
+  .pf-nm{font-size:23px}
+  .pf-stats .pf-stat{padding:12px 6px}
+  .pf-stats .v{font-size:17px}
+  .pf-sect{margin:22px 0 12px}
+  .chartbox{padding:12px 8px 8px}
+  .chartbox svg{height:165px}
+  .lg{padding:4px 9px;font-size:8.5px}
+  .pm{padding:9px 11px;gap:8px}
+  .pm .lft{gap:8px}
+  .pm .rgt{gap:9px}
+  .pm .dt2{width:46px;font-size:8.5px}
+  .pm .sc2{font-size:13px}
+  .cattbl{min-width:430px}
+  .recbox{padding:15px}
+  .panel .ph .t{font-size:18px}
+  .abar{padding:16px}
+  .actl{width:100%}
+  .actl .abtn,.actl .toggle{flex:1;justify-content:center}
+  .login{padding:26px 20px;margin:30px auto}
+  .tourwrap{gap:13px}
+  .ticker{margin-bottom:4px}
+  .h-sub{font-size:13px}
+}
+@media(max-width:480px){
+  .row.lb{grid-template-columns:26px 1fr 56px;padding:0 9px}
+  .pcell .headimg{width:34px;height:34px}
+  .pts .n{font-size:17px}
+  .pm .ct2{display:none}
+  .shot-id .nm{font-size:20px}
+  .nemesisrow .nem{padding:10px 12px}
+  .mc .mscore{font-size:19px}
+  .hgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .hcard .hdays .n{font-size:20px}
+  .pf-actions .pf-btn{flex:1;justify-content:center;padding:9px 8px;font-size:9.5px}
+  .pd-stage{width:108px}
+  .recgrid{grid-template-columns:1fr}
+}
+/* ====== BOTTOM NAV (телефоны) ====== */
+.bnav{display:none}
+@media(max-width:760px){
+  .burger{display:none!important}
+  .drawer{display:none!important}
+  .bnav{position:fixed;left:0;right:0;bottom:0;z-index:95;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;
+    background:rgba(8,8,13,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+  .bn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    padding:7px 2px 5px;border-radius:12px;color:var(--mut2);position:relative;transition:color .15s;min-height:48px}
+  .bn-item svg{width:19px;height:19px}
+  .bn-item .bl{font-family:var(--disp);font-weight:700;font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .bn-item.on{color:var(--txt)}
+  .bn-item.on svg{color:var(--br1);filter:drop-shadow(0 0 7px rgba(167,139,250,.6))}
+  .bn-item.on::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:22px;height:2.5px;border-radius:3px;background:var(--grad)}
+  .bn-item:active{background:rgba(255,255,255,.05)}
+  .page{padding-bottom:106px}
+  #toast{bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+  .sheet{padding-bottom:96px}
+  .shot-actions{padding-bottom:8px}
+}
+@media(max-width:380px){
+  .bn-item .bl{font-size:6.8px}
+  .bn-item svg{width:17px;height:17px}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
 }
@@ -611,6 +751,7 @@ select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="drawer" id="drawer"></div>
 </header>
 <main class="wrap" id="app"></main>
+<nav class="bnav" id="bnav"></nav>
 <div id="layer"></div>
 <div id="tip"></div>
 <div id="toast"></div>
@@ -1229,6 +1370,17 @@ function renderHeader(){
   document.getElementById("nbtns").innerHTML=items+adm;
   document.getElementById("drawer").innerHTML=NAV.filter(n=>data.meta.nav[n[0]]!==false).map(n=>'<button class="nbtn'+(state.route===n[0]?" on":"")+'" data-nav="'+n[0]+'">'+n[1]+'</button>').join("")+adm;
   document.getElementById("searchbtn").innerHTML=ic("search",15);
+  // нижняя мобильная навигация
+  const NAVI={tiers:"shield",elo:"chart",matches:"swords",tournaments:"trophy",archive:"clock"};
+  const bn=document.getElementById("bnav");
+  if(bn){
+    let bh=NAV.filter(n=>data.meta.nav[n[0]]!==false).map(n=>{
+      const lbl=n[0]==="tournaments"?"ТУРНИРЫ":(n[0]==="elo"?"ELO":n[1]);
+      return '<button class="bn-item'+(state.route===n[0]?" on":"")+'" data-nav="'+n[0]+'">'+ic(NAVI[n[0]]||"star",19)+'<span class="bl">'+lbl+'</span></button>';
+    }).join("");
+    bh+='<button class="bn-item'+(state.route==="admin"?" on":"")+'" data-nav="admin">'+ic("settings",19)+'<span class="bl">ADMIN</span></button>';
+    bn.innerHTML=bh;
+  }
   document.getElementById("draftchip").style.display=(state.authed&&JSON.stringify(draft)!==JSON.stringify(published))?"inline-flex":"none";
 }
 function render(){
@@ -1624,7 +1776,7 @@ function openProfile(pid){
     '<div class="pf-sub">'+(p.overall?'<span class="pf-tierchip" style="background:'+tcol+'">'+ic("shield",13)+' ТИР '+esc(p.overall)+'</span>':"")+
     (pk&&pk.idx<tierIdx(data,p.overall||"zz")?'<span class="peak" style="color:'+tierColor(data,pk.tier)+';border-color:'+tierColor(data,pk.tier)+'55;font-size:10px;padding:4px 9px">⤒ пик '+esc(pk.tier)+' · '+esc(pk.season)+'</span>':"")+
     '<span class="pf-act">'+activityDot(st.activity)+' '+actT+'</span></div>'+
-    '<div class="pf-actions"><button class="pf-btn" data-allmatches="'+p.id+'">'+ic("swords",12)+' Все матчи</button><button class="pf-btn" data-cmpopen="'+p.id+'">'+ic("swap",12)+' Сравнить</button><button class="pf-btn" data-share="'+p.id+'">'+ic("link",12)+' Ссылка</button></div>'+
+    '<div class="pf-actions"><button class="pf-btn" data-sharecard="'+p.id+'">'+ic("camera",12)+' Карточка</button><button class="pf-btn" data-allmatches="'+p.id+'">'+ic("swords",12)+' Все матчи</button><button class="pf-btn" data-cmpopen="'+p.id+'">'+ic("swap",12)+' Сравнить</button><button class="pf-btn" data-share="'+p.id+'">'+ic("link",12)+' Ссылка</button></div>'+
     '</div></div>';
   // 6 статов
   const stats=[
@@ -1763,6 +1915,193 @@ function chartHTML(pid){
   }).join("");
   return '<div class="chartbox">'+seg+'<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">'+grid+paths+'</svg><div class="legend">'+legend+'</div></div>';
 }
+/* ---- карточка для скриншота ---- */
+function shotData(pid){
+  const c=ctx(),data=c.data;
+  const p=byId(data.players,pid);if(!p)return null;
+  const st=c.stats[pid]||{w:0,l:0,wr:0,form5:[],streak:0,matches:0,activity:"x"};
+  const elo=c.R.overall[pid];
+  const score=ctxPerf("overall")[pid];
+  const pk=peakTier(data,pid);
+  let trophies=0;
+  data.tournaments.forEach(t=>{["first","second","third"].forEach(k=>{if((t[k]||[]).includes(pid))trophies++;});});
+  const now=new Date();
+  return {p,st,data,
+    elo:elo!=null?Math.round(elo):"–",score:score!=null?score:"–",
+    pts:playerPoints(data,p),pk:pk?pk.tier:"–",trophies,
+    dateStr:now.getDate()+" "+MONTHS_RU[now.getMonth()]+" "+now.getFullYear()};
+}
+function openShareCard(pid){
+  const sd=shotData(pid);if(!sd)return;
+  const {p,st,data}=sd;
+  const tcol=p.overall?tierColor(data,p.overall):"#a78bfa";
+  const cats=data.categories.filter(cc=>(p.tiers||{})[cc.id]);
+  let html='<div class="ovl" data-close="1"></div><div class="sheet" data-close="1"><div class="shotwrap">';
+  html+='<div class="shotcard" id="shotcard">'+
+    '<div class="shot-top"><span class="sn">'+esc(data.meta.siteName||"BLACKSHEEP TIERS")+'</span><span>'+esc(sd.dateStr)+'</span></div>'+
+    '<div class="shot-id">'+headImg(p.skin,64)+'<div><div class="nm">'+esc(p.name)+(p.badge?'<span class="bdg mini" style="background:rgba(255,255,255,.07);color:var(--mut);border:1px solid var(--line2)">'+esc(p.badge)+'</span>':"")+(st.streak>=3?' <span style="font-size:14px">🔥'+st.streak+'</span>':"")+'</div>'+
+    '<div class="sub">'+(p.overall?'<span class="pf-tierchip" style="background:'+tcol+';font-size:11px;padding:4px 10px">ТИР '+esc(p.overall)+'</span>':"")+activityDot(st.activity)+'</div></div></div>'+
+    '<div class="shot-stats">'+
+      '<div class="ss"><div class="v">'+sd.pts+'</div><div class="k">Points</div></div>'+
+      '<div class="ss"><div class="v">'+sd.elo+'</div><div class="k">ELO</div></div>'+
+      '<div class="ss"><div class="v">'+sd.score+'</div><div class="k">Score</div></div>'+
+      '<div class="ss"><div class="v" style="color:'+(st.wr>=50?"var(--good)":"var(--txt)")+'">'+st.wr+'%</div><div class="k">Win rate</div></div>'+
+      '<div class="ss"><div class="v">'+st.w+'<span style="color:var(--mut2);font-size:12px">–</span>'+st.l+'</div><div class="k">W–L</div></div>'+
+      '<div class="ss"><div class="v">'+(sd.trophies||"–")+'</div><div class="k">Трофеи</div></div>'+
+    '</div>'+
+    (cats.length?'<div class="shot-cats">'+cats.map(cc=>{
+      const t=(p.tiers||{})[cc.id];
+      return '<div class="scp"><div class="t" style="color:'+tierColor(data,t)+'">'+esc(t)+'</div><div class="c">'+esc(cc.short)+'</div></div>';
+    }).join("")+'</div>':"")+
+    '<div class="shot-form"><span class="form">'+formSquares(st.form5)+'</span><span class="wrbar"><i style="width:'+st.wr+'%"></i></span><span style="font-family:var(--mono);font-size:10px;font-weight:700;color:var(--mut)">'+st.matches+' '+plural(st.matches,"матч","матча","матчей")+'</span></div>'+
+    '<div class="shot-foot"><span>'+ic("server",10)+' '+esc(data.meta.server||"Aormio")+'</span><span>пик: '+esc(sd.pk)+'</span></div>'+
+  '</div>';
+  html+='<div class="shot-actions"><button class="pf-btn" data-dlcard="'+p.id+'">'+ic("dl",12)+' Скачать PNG</button><button class="pf-btn" data-player="'+p.id+'">'+ic("eye",12)+' Полный профиль</button><button class="pf-btn" data-close="1">'+ic("x",12)+' Закрыть</button></div>';
+  html+='</div></div>';
+  const layer=document.getElementById("layer");
+  layer.innerHTML=html;layer.classList.add("open");
+}
+function loadSkinImg(skin,cb){
+  let done=false;
+  const fin=img=>{if(!done){done=true;cb(img);}};
+  try{
+    const img=new Image();
+    img.crossOrigin="anonymous";
+    img.onload=()=>fin(img);
+    img.onerror=()=>fin(null);
+    img.src=avSrc(skin,128);
+    setTimeout(()=>fin(null),3500);
+  }catch(e){fin(null);}
+}
+function rr(g,x,y,w,h,r){
+  g.beginPath();
+  g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();
+}
+function downloadCard(pid){
+  const sd=shotData(pid);if(!sd)return;
+  const {p,st,data}=sd;
+  const cv=document.createElement("canvas");
+  const W=1000,H=860;cv.width=W;cv.height=H;
+  let g=null;try{g=cv.getContext("2d");}catch(e){}
+  if(!g){toast("Браузер не поддерживает рисование — сделай скриншот карточки",true);return;}
+  loadSkinImg(p.skin,img=>{
+    try{
+      const tcol=p.overall?tierColor(data,p.overall):"#a78bfa";
+      // фон
+      g.fillStyle="#0a0a10";g.fillRect(0,0,W,H);
+      let rg=g.createRadialGradient(W-120,80,0,W-120,80,460);
+      rg.addColorStop(0,"rgba(167,139,250,.22)");rg.addColorStop(1,"rgba(167,139,250,0)");
+      g.fillStyle=rg;g.fillRect(0,0,W,H);
+      rg=g.createRadialGradient(90,H-60,0,90,H-60,420);
+      rg.addColorStop(0,"rgba(244,114,182,.15)");rg.addColorStop(1,"rgba(244,114,182,0)");
+      g.fillStyle=rg;g.fillRect(0,0,W,H);
+      // рамка
+      g.strokeStyle="rgba(255,255,255,.1)";g.lineWidth=2;rr(g,12,12,W-24,H-24,30);g.stroke();
+      const PD=64;
+      // шапка
+      const lg=g.createLinearGradient(PD,0,PD+360,0);
+      lg.addColorStop(0,"#a78bfa");lg.addColorStop(.5,"#f472b6");lg.addColorStop(1,"#fbbf24");
+      g.fillStyle=lg;g.font="700 21px Unbounded, sans-serif";g.textBaseline="alphabetic";
+      g.fillText((data.meta.siteName||"BLACKSHEEP TIERS").toUpperCase(),PD,PD+8);
+      g.fillStyle="#5c5c66";g.font="600 17px 'JetBrains Mono', monospace";g.textAlign="right";
+      g.fillText(sd.dateStr,W-PD,PD+8);g.textAlign="left";
+      // скин
+      const sy0=PD+50,SS=128;
+      g.save();rr(g,PD,sy0,SS,SS,22);g.clip();
+      g.fillStyle="#16161e";g.fillRect(PD,sy0,SS,SS);
+      if(img){try{g.imageSmoothingEnabled=false;g.drawImage(img,PD,sy0,SS,SS);}catch(e){}}
+      else{
+        // пиксельная заглушка
+        g.fillStyle="#3a2f26";g.fillRect(PD,sy0,SS,SS);
+        g.fillStyle="#c7a17a";g.fillRect(PD+16,sy0+38,SS-32,SS-54);
+        g.fillStyle="#fff";g.fillRect(PD+32,sy0+64,18,14);g.fillRect(PD+SS-50,sy0+64,18,14);
+        g.fillStyle="#3b2f8f";g.fillRect(PD+38,sy0+70,8,8);g.fillRect(PD+SS-44,sy0+70,8,8);
+      }
+      g.restore();
+      g.strokeStyle="rgba(255,255,255,.14)";g.lineWidth=2.5;rr(g,PD,sy0,SS,SS,22);g.stroke();
+      // имя
+      let nx=PD+SS+30,ny=sy0+48;
+      g.fillStyle="#e8e8ee";g.font="800 47px Unbounded, sans-serif";
+      g.fillText(p.name,nx,ny);
+      const nw=g.measureText(p.name).width;
+      if(st.streak>=3){g.font="34px sans-serif";g.fillText("🔥",nx+nw+14,ny);g.fillStyle="#fbbf24";g.font="800 24px Unbounded, sans-serif";g.fillText(String(st.streak),nx+nw+52,ny);}
+      // тир-чип
+      let cx0=nx;
+      if(p.overall){
+        g.fillStyle=tcol;rr(g,nx,ny+22,128,44,12);g.fill();
+        g.fillStyle="#0a0a10";g.font="800 22px Unbounded, sans-serif";
+        g.fillText("ТИР "+p.overall,nx+18,ny+52);
+        cx0=nx+144;
+      }
+      if(p.badge){
+        g.strokeStyle="rgba(255,255,255,.18)";g.lineWidth=2;
+        const bw=g.measureText(p.badge).width;
+        rr(g,cx0,ny+22,bw+62,44,12);g.stroke();
+        g.fillStyle="#8b8b98";g.font="700 20px Unbounded, sans-serif";
+        g.fillText(p.badge,cx0+18,ny+51);
+      }
+      // статы 3×2
+      const stats=[[String(sd.pts),"POINTS"],[String(sd.elo),"ELO"],[String(sd.score),"SCORE"],[st.wr+"%","WIN RATE"],[st.w+"–"+st.l,"W–L"],[String(sd.trophies||"–"),"ТРОФЕИ"]];
+      const gy=sy0+SS+44,cw=(W-2*PD-2*16)/3,ch=104;
+      stats.forEach((s,i)=>{
+        const x=PD+(i%3)*(cw+16),y=gy+Math.floor(i/3)*(ch+16);
+        g.fillStyle="rgba(255,255,255,.04)";rr(g,x,y,cw,ch,16);g.fill();
+        g.strokeStyle="rgba(255,255,255,.08)";g.lineWidth=1.5;rr(g,x,y,cw,ch,16);g.stroke();
+        g.fillStyle=(s[1]==="WIN RATE"&&st.wr>=50)?"#34d399":"#e8e8ee";
+        g.font="800 36px Unbounded, sans-serif";g.textAlign="center";
+        g.fillText(s[0],x+cw/2,y+52);
+        g.fillStyle="#5c5c66";g.font="600 12px Unbounded, sans-serif";
+        g.fillText(s[1],x+cw/2,y+82);g.textAlign="left";
+      });
+      // категории
+      const cats=data.categories.filter(cc=>(p.tiers||{})[cc.id]);
+      let cy0=gy+2*ch+16+34;
+      if(cats.length){
+        const ccw=(W-2*PD-(cats.length-1)*12)/cats.length;
+        cats.forEach((cc,i)=>{
+          const t=(p.tiers||{})[cc.id];const x=PD+i*(ccw+12);
+          g.fillStyle="rgba(255,255,255,.04)";rr(g,x,cy0,ccw,86,14);g.fill();
+          g.fillStyle=tierColor(data,t);g.font="800 32px Unbounded, sans-serif";g.textAlign="center";
+          g.fillText(t,x+ccw/2,cy0+44);
+          g.fillStyle="#5c5c66";g.font="600 11px Unbounded, sans-serif";
+          g.fillText((cc.short||"").toUpperCase(),x+ccw/2,cy0+70);g.textAlign="left";
+        });
+        cy0+=86+30;
+      }
+      // форма W/L + полоса WR
+      const f5=st.form5||[];
+      let fx=PD;
+      f5.forEach(w2=>{
+        g.fillStyle=w2?"rgba(52,211,153,.16)":"rgba(244,96,122,.16)";rr(g,fx,cy0,40,40,10);g.fill();
+        g.fillStyle=w2?"#34d399":"#f4607a";g.font="800 19px Unbounded, sans-serif";g.textAlign="center";
+        g.fillText(w2?"W":"L",fx+20,cy0+27);g.textAlign="left";
+        fx+=48;
+      });
+      const bx=fx+18,bw2=W-PD-bx-110;
+      g.fillStyle="rgba(255,255,255,.07)";rr(g,bx,cy0+16,bw2,9,5);g.fill();
+      g.fillStyle="#34d399";rr(g,bx,cy0+16,Math.max(6,bw2*st.wr/100),9,5);g.fill();
+      g.fillStyle="#8b8b98";g.font="700 16px 'JetBrains Mono', monospace";
+      g.fillText(st.matches+" игр",bx+bw2+16,cy0+24);
+      // футер
+      g.strokeStyle="rgba(255,255,255,.08)";g.lineWidth=1.5;
+      g.beginPath();g.moveTo(PD,H-86);g.lineTo(W-PD,H-86);g.stroke();
+      g.fillStyle="#5c5c66";g.font="600 15px 'JetBrains Mono', monospace";
+      g.fillText("сервер: "+(data.meta.server||"Aormio"),PD,H-50);
+      g.textAlign="right";g.fillText("пиковый тир: "+sd.pk,W-PD,H-50);g.textAlign="left";
+      // скачивание
+      let url="";
+      try{url=cv.toDataURL("image/png");}catch(e){
+        toast("Скины с другого домена заблокировали экспорт — сделай скриншот карточки",true);return;
+      }
+      const a=document.createElement("a");
+      a.href=url;a.download=p.name+"_card.png";
+      document.body.appendChild(a);a.click();
+      setTimeout(()=>{try{a.remove();}catch(e){}},500);
+      toast("📸 Карточка "+p.name+" скачана");
+    }catch(e){toast("Не удалось нарисовать карточку: "+e.message,true);}
+  });
+}
+
 /* ---- диаграмма очков по сезонам ---- */
 function seasonChart(pid){
   const data=D();
@@ -2120,7 +2459,7 @@ function snapshotSeason(){
 
 /* ================= EVENTS ================= */
 document.addEventListener("click",e=>{
-  const t=e.target.closest("[data-nav],[data-kit],[data-elokit],[data-elomode],[data-mkit],[data-mperiod],[data-season],[data-hofmode],[data-atab],[data-act],[data-player],[data-close],[data-cline],[data-chartmode],[data-cmpopen],[data-share],[data-allmatches],[data-clearmplayer]");
+  const t=e.target.closest("[data-nav],[data-kit],[data-elokit],[data-elomode],[data-mkit],[data-mperiod],[data-season],[data-hofmode],[data-atab],[data-act],[data-player],[data-close],[data-cline],[data-chartmode],[data-cmpopen],[data-share],[data-allmatches],[data-clearmplayer],[data-sharecard],[data-dlcard]");
   if(!t)return;
   const ds=t.dataset;
   if(ds.close!==undefined&&t===e.target||ds.close&&t.classList.contains("pf-x")){closeLayer();return;}
@@ -2141,6 +2480,8 @@ document.addEventListener("click",e=>{
     const box=t.closest(".chartbox");
     if(box&&pid){const tmp=document.createElement("div");tmp.innerHTML=chartHTML(pid);box.replaceWith(tmp.firstChild);}
     return;}
+  if(ds.sharecard){openShareCard(ds.sharecard);return;}
+  if(ds.dlcard){downloadCard(ds.dlcard);return;}
   if(ds.allmatches){state.matchPlayer=ds.allmatches;closeLayer();go("matches");return;}
   if(ds.clearmplayer){state.matchPlayer=null;render();return;}
   if(ds.cmpopen){renderCompare(ds.cmpopen,state.cmpWith);return;}
