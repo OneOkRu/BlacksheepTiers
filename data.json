@@ -93,6 +93,14 @@
       "id": "op",
       "name": "OP",
       "short": "OP"
+    },
+    {
+      "color": "#22c55e",
+      "icon": "shield",
+      "desc": "Survival Multiplayer: бои в условиях выживания — своя экипировка, ресурсы и тактика. Решает не только аим, но и подготовка.",
+      "id": "smp",
+      "name": "SMP",
+      "short": "SMP"
     }
   ],
   "players": [
@@ -715,6 +723,8 @@
   "seasons": [
     {
       "id": "sn1",
+      "name": "Winter 2025",
+      "date": "2025-01-06",
       "entries": [
         {
           "player": "p3",
@@ -770,12 +780,12 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Winter 2025",
-      "date": "2025-01-06"
+      ]
     },
     {
       "id": "sn2",
+      "name": "Spring 2025",
+      "date": "2025-04-06",
       "entries": [
         {
           "player": "p1",
@@ -831,20 +841,20 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Spring 2025",
-      "date": "2025-04-06"
+      ]
     },
     {
       "id": "sn3",
+      "name": "Summer 2025",
+      "date": "2025-06-06",
       "entries": [
         {
           "player": "p1",
           "tier": "S",
           "points": 20,
           "tiers": {
-            "sword": "A",
-            "axe": "A"
+            "sword": "S",
+            "axe": "S"
           }
         },
         {
@@ -853,7 +863,7 @@
           "points": 18,
           "tiers": {
             "sword": "S",
-            "axe": "S"
+            "axe": "A"
           }
         },
         {
@@ -892,19 +902,19 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Summer 2025",
-      "date": "2025-06-06"
+      ]
     },
     {
       "id": "sn4",
+      "name": "Autumn 2025",
+      "date": "2025-10-06",
       "entries": [
         {
           "player": "p1",
           "tier": "S",
           "points": 20,
           "tiers": {
-            "sword": "A",
+            "sword": "S",
             "axe": "S"
           }
         },
@@ -953,12 +963,12 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Autumn 2025",
-      "date": "2025-10-06"
+      ]
     },
     {
       "id": "sn5",
+      "name": "Winter 2026",
+      "date": "2026-01-24",
       "entries": [
         {
           "player": "p1",
@@ -1014,12 +1024,12 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Winter 2026",
-      "date": "2026-01-24"
+      ]
     },
     {
       "id": "sn6",
+      "name": "Spring 2026",
+      "date": "2026-04-06",
       "entries": [
         {
           "player": "p1",
@@ -1084,9 +1094,7 @@
             "axe": "D"
           }
         }
-      ],
-      "name": "Spring 2026",
-      "date": "2026-04-06"
+      ]
     }
   ]
 }
