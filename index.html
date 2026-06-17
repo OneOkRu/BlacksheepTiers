@@ -155,7 +155,7 @@ header.hd{position:sticky;top:0;z-index:80;background:rgba(7,7,11,.78);backdrop-
 .shead{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 12px;gap:10px;flex-wrap:wrap}
 .board{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
 .row{display:grid;align-items:center;padding:0 24px}
-.row.lb{grid-template-columns:54px minmax(250px,1.35fr) 92px minmax(240px,1fr) 60px 104px}
+.row.lb{grid-template-columns:54px minmax(230px,1.1fr) 80px minmax(330px,auto) 56px 100px}
 .row.hd{height:50px;border-bottom:1px solid var(--line)}
 .row.hd .th{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:8.5px;color:var(--mut2)}
 .row.bd{min-height:88px;border-bottom:1px solid var(--line);transition:background .14s;cursor:pointer;position:relative}
@@ -200,10 +200,15 @@ header.hd{position:sticky;top:0;z-index:80;background:rgba(7,7,11,.78);backdrop-
 .nodata{color:var(--mut2);font-family:var(--mono);font-size:10.5px}
 
 .tletter{font-family:var(--disp);font-weight:800;font-size:30px;text-align:center;display:block;text-shadow:0 0 24px color-mix(in srgb,currentColor 45%,transparent)}
-.subs{display:flex;gap:13px;align-items:center;flex-wrap:wrap}
-.sc{display:flex;flex-direction:column;align-items:center;gap:3px}
-.sc .t{font-family:var(--disp);font-weight:800;font-size:15px;line-height:1}
-.sc .l{font-family:var(--disp);font-weight:500;font-size:7px;letter-spacing:.16em;color:var(--mut2)}
+.subs{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.sc{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:default}
+.sc .badge2{position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,var(--card2));border:1px solid color-mix(in srgb,var(--c) 45%,transparent);transition:transform .15s,box-shadow .15s}
+.sc:hover .badge2{transform:translateY(-2px);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--c) 70%,transparent)}
+.sc .badge2 svg{width:17px;height:17px;color:var(--c)}
+.sc .l{font-family:var(--disp);font-weight:700;font-size:8px;letter-spacing:.06em;color:var(--c);line-height:1}
+.sc-old{display:inline-flex;flex-direction:column;align-items:center;gap:3px}
+.sc-old .t{font-family:var(--disp);font-weight:800;font-size:15px;line-height:1}
+.sc-old .l{font-family:var(--disp);font-weight:500;font-size:7px;letter-spacing:.16em;color:var(--mut2)}
 .pts{text-align:right}
 .pts .n{font-family:var(--disp);font-weight:800;font-size:22px}
 .pts .u{font-family:var(--disp);font-weight:500;font-size:7.5px;letter-spacing:.22em;color:var(--mut2);display:block;margin-top:2px}
@@ -1130,6 +1135,8 @@ function migrate(d){
   d.tiers=d.tiers.filter(t=>t.points!==undefined||/^[A-Z]$/.test(t.id||""));
   if(!d.tiers.length)d.tiers=def.tiers;
   d.categories=(d.categories&&d.categories.length?d.categories:def.categories).map(c=>Object.assign({color:"#8b8b98",icon:"star",desc:""},c));
+  // дозаполнить недостающие дефолтные категории (например smp), не трогая пользовательские и их порядок
+  def.categories.forEach(dc=>{if(!d.categories.some(c=>c.id===dc.id))d.categories.push(Object.assign({},dc));});
   // подтянуть описания из дефолта если пустые
   d.categories.forEach(c=>{if(!c.desc){const dc=def.categories.find(x=>x.id===c.id);if(dc)c.desc=dc.desc;}});
   d.players=(d.players||[]).map(p=>Object.assign({tourneyPts:0,badge:"",overall:"",tiers:{},skin:""},p));
@@ -1577,8 +1584,10 @@ function overallBoard(){
   rows.forEach((r,i)=>{
     const p=r.p;
     const subs=data.categories.map(cc=>{
-      const t=(p.tiers||{})[cc.id];if(!t)return"";
-      return '<span class="sc" data-tipcat="'+cc.id+'"><span class="t" style="color:'+tierColor(data,t)+'">'+esc(t)+'</span><span class="l">'+esc(cc.short)+'</span></span>';
+      const t=(p.tiers||{})[cc.id];
+      if(!t)return"";
+      const col=tierColor(data,t);
+      return '<span class="sc" style="--c:'+col+'" data-tipcat="'+cc.id+'"><span class="badge2"><svg class="svgi" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ICONS[cc.icon||"star"]+'</svg></span><span class="l">'+esc(t)+'</span></span>';
     }).join("");
     html+='<div class="row lb" data-player="'+p.id+'" style="animation:fadeup .4s ease both;animation-delay:'+(i*40)+'ms">'+
       '<span class="rk r'+(i+1)+'">'+(i+1)+'</span>'+
@@ -1790,7 +1799,7 @@ function viewArchive(){
       }else if(!p)cmp='<span class="dlt same">ушёл</span>';
       const subs=Object.keys(e.tiers||{}).map(cid=>{
         const cc=byId(data.categories,cid);if(!cc)return"";
-        return '<span class="sc"><span class="t" style="color:'+tierColor(data,e.tiers[cid])+'">'+esc(e.tiers[cid])+'</span><span class="l">'+esc(cc.short)+'</span></span>';
+        return '<span class="sc-old"><span class="t" style="color:'+tierColor(data,e.tiers[cid])+'">'+esc(e.tiers[cid])+'</span><span class="l">'+esc(cc.short)+'</span></span>';
       }).join("");
       html+='<div class="row" style="display:grid;grid-template-columns:54px 1fr 90px 1fr 110px;height:68px" '+(p?'data-player="'+p.id+'"':"")+'>'+
         '<span class="rk r'+(i+1)+'">'+(i+1)+'</span>'+
