@@ -10,7 +10,8 @@
       "elo": true,
       "matches": true,
       "tournaments": true,
-      "archive": true
+      "archive": true,
+      "launcher": true
     }
   },
   "tiers": [
@@ -111,9 +112,10 @@
       "tiers": {
         "sword": "S",
         "axe": "S",
-        "uhc": "B",
+        "uhc": "A",
         "dpot": "S",
-        "npot": "S"
+        "npot": "S",
+        "op": "S"
       },
       "skin": "ClubOne_",
       "id": "p1",
@@ -128,7 +130,8 @@
         "axe": "S",
         "uhc": "A",
         "dpot": "A",
-        "npot": "B"
+        "npot": "B",
+        "op": "A"
       },
       "skin": "solleise",
       "id": "p2",
@@ -140,10 +143,11 @@
       "overall": "B",
       "tiers": {
         "sword": "B",
-        "axe": "B",
-        "uhc": "S",
+        "axe": "S",
+        "uhc": "A",
         "dpot": "B",
-        "npot": "B"
+        "npot": "B",
+        "op": "B"
       },
       "skin": "lagoat7112",
       "id": "p3",
@@ -158,7 +162,8 @@
         "axe": "B",
         "uhc": "A",
         "dpot": "A",
-        "npot": "A"
+        "npot": "A",
+        "op": "A"
       },
       "skin": "Nekaa_",
       "id": "p4",
@@ -173,7 +178,8 @@
         "axe": "C",
         "uhc": "C",
         "dpot": "A",
-        "npot": "A"
+        "npot": "A",
+        "op": "A"
       },
       "skin": "ClubOne",
       "id": "p5",
@@ -188,7 +194,8 @@
         "axe": "D",
         "uhc": "D",
         "dpot": "D",
-        "npot": "D"
+        "npot": "D",
+        "op": "D"
       },
       "skin": "Mintcl",
       "id": "p6",
@@ -203,7 +210,8 @@
         "axe": "D",
         "uhc": "D",
         "dpot": "D",
-        "npot": "D"
+        "npot": "D",
+        "op": "D"
       },
       "skin": "xomyak",
       "id": "p7",
@@ -788,12 +796,102 @@
       "s2": 1
     },
     {
+      "date": "2026-06-17",
       "id": "mn9fk6rpd",
       "cat": "uhc",
       "p1": "p2",
       "p2": "p3",
       "s1": 0,
-      "s2": 3,
+      "s2": 3
+    },
+    {
+      "id": "m45m2iy1q",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 1,
+      "s2": 6,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "mbp92e1wr",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 10,
+      "s2": 9,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "muqncnc8a",
+      "cat": "axe",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 3,
+      "s2": 2,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "m4b2aou3x",
+      "cat": "uhc",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 3,
+      "s2": 2,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "md0j8wha3",
+      "cat": "dpot",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 3,
+      "s2": 0,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "mbwruhtu1",
+      "cat": "npot",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 3,
+      "s2": 0,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "m77vlmnyi",
+      "cat": "op",
+      "p1": "p3",
+      "p2": "p1",
+      "s1": 0,
+      "s2": 2,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "mf4cguvha",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 2,
+      "s2": 0,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "ms6sc7cxi",
+      "cat": "sword",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 6,
+      "s2": 1,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "mlj0ilmub",
+      "cat": "smp",
+      "p1": "p1",
+      "p2": "p3",
+      "s1": 2,
+      "s2": 0,
       "date": "2026-06-17"
     }
   ],
